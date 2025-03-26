@@ -1,0 +1,7 @@
+[
+    {"id": 1, "title":"hello article", "img": "https://picsum.photos","fullText":"some text here to fill the body"},
+    {"id": 2, "title":"another article", "img": "https://picsum.photos", "fullText":"again here is some text here to fill"},
+    {"id": 3, "title":"coventry university", "img": "https://picsum.photos", "fullText":"some news about coventry university"},
+    {"id": 4, "title":"smart campus", "img": "https://picsum.photos", "fullText":"smart campus is coming to IVE"},
+    {"id": 5, "title":"Last campus", "img": "https://picsum.photos", "fullText":"smart campus is coming to CW"}
+    ]

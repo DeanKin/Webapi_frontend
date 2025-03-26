@@ -1,161 +1,45 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-import {
-  Avatar,
-  Button,
-  Card,
-  Col,
-  DatePicker,
-  DatePickerProps,
-  Row,
-} from "antd";
-import {
-  SearchOutlined,
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import Hello from "./components/Hello";
-import Goodbye from "./components/Goodbye";
-import Card1 from "./components/Card1";
+import { Flex, Layout, Space } from 'antd';
+import { Routes,Route, BrowserRouter, Link, } from "react-router-dom"
+import Home from './components/Home';
+import About from './components/Anout';
+import Dashboard from './components/Dashboard';
+import Article from './components/Article';
+import DetailArticle from './components/DetailArticle';
+import Login from './components/login';
 
-const { Meta } = Card;
-
-function App() {
-  //const [count, setCount] = useState(0)
-  let counter = 0;
-
-  const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-    console.log(date, dateString);
-  };
-
-  const onClick = (event: any) => {
-    console.log(counter++);
-  };
-
+const App = ()=> {
   return (
-    <>
-      <Hello name="KK" />
-      <div>
-        <Card title="Default card" style={{ width: 300 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content 123</p>
-        </Card>
-        <br />
-        <Button type="primary" icon={<SearchOutlined />} onClick={onClick}>
-          Button
-        </Button>
-        <Button type="primary" danger>
-          Button
-        </Button>
-        <br />
-        <DatePicker onChange={onChange} />
-      </div>
-      <Goodbye name="BYE" />
-      <Row type="flex" justify="space-around">
-        <Col span={8}>
-          <Card1 />
-        </Col>
+    <Layout style = {{ height: '100%'}}>
 
-        <Col span={8}>
-          <Card
-            hoverable
-            style={{ width: 200 }}
-            cover={
-              <img
-                alt="example"
-                src="https://hk.on.cc/hk/bkn/cnt/entertainment/20250319/photo/bkn-20250319130130097-0319_00862_001_01b.jpg"
-              />
-            }
-          >
-            <Meta
-              title="Europe Street beat 2"
-              description="www.instagram.com"
-            />
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card
-            hoverable
-            style={{ width: 200 }}
-            cover={
-              <img
-                alt="example"
-                src="https://fs.mingpao.com/fin/20250319/s00011/b8bb1f9bff7f1a963e3440f75c58c713.jpg"
-              />
-            }
-          >
-            <Meta
-              title="Europe Street beat 3"
-              description="www.instagram.com"
-            />
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card
-            hoverable
-            style={{ width: 200 }}
-            cover={
-              <img
-                alt="example"
-                src="https://hk.on.cc/hk/bkn/cnt/entertainment/20250318/photo/bkn-20250318145549776-0318_00862_001_02b.jpg"
-              />
-            }
-          >
-            <Meta
-              title="Europe Street beat 4"
-              description="www.instagram.com"
-            />
-          </Card>
-        </Col>
+      <BrowserRouter>
+        <Layout.Header style = {{display:`flex`, position: 'fixed', left:0, top: 0, width: '100%'}} >
+          <nav>
+          <Space>
+            <Link to="/">Home</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/about">About</Link>
+            <Link to="/login">Login</Link>
+          </Space>
+          
+          </nav>
 
-        <Col span={8}>
-          <Card
-            hoverable
-            style={{ width: 200 }}
-            cover={
-              <img
-                alt="example"
-                src="https://hk.on.cc/hk/bkn/cnt/entertainment/20250318/photo/bkn-20250318145549776-0318_00862_001_03b.jpg"
-              />
-            }
-          >
-            <Meta
-              title="Europe Street beat 5"
-              description="www.instagram.com"
-            />
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card
-            style={{ width: 300 }}
-            cover={
-              <img
-                alt="example"
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-              />
-            }
-            actions={[
-              <SettingOutlined key="setting" />,
-              <EditOutlined key="edit" />,
-              <EllipsisOutlined key="ellipsis" />,
-            ]}
-          >
-            <Meta
-              avatar={
-                <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
-              }
-              title="Card title"
-              description="This is the description"
-            />
-          </Card>
-        </Col>
-      </Row>
-    </>
+        </Layout.Header>
+        <Layout.Content style = {{padding:`0 48px`, display: "flex", position: "fixed", top: 60}}>
+            <Routes>
+              <Route index element={ <Article />} />
+              <Route path="/about" element={ <About />} />
+              <Route path="/dashboard" element={ <Dashboard /> } />
+              <Route path="/login" element={ <Login /> } />
+              <Route path="/detail/:aid" element={ <DetailArticle /> } />
+            </Routes>
+        </Layout.Content>
+        <Layout.Footer style={{position:"fixed", left:0, bottom:0, width:'100%'}}>
+          <p>(c) 2025 Web API Development</p>
+        </Layout.Footer>
+      </BrowserRouter>
+    
+    </Layout>
   );
-}
-
+  
+};
 export default App;
