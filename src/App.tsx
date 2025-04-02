@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Article from './components/Article';
 import DetailArticle from './components/DetailArticle';
 import Login from './components/login';
+import NewArticles from './components/NewArticles';
 
 const App = ()=> {
   return (
@@ -18,7 +19,9 @@ const App = ()=> {
             <Link to="/">Home</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/about">About</Link>
+            <Link to="/NewArticles">NewArticles</Link>
             <Link to="/login">Login</Link>
+
           </Space>
           
           </nav>
@@ -30,6 +33,7 @@ const App = ()=> {
               <Route path="/about" element={ <About />} />
               <Route path="/dashboard" element={ <Dashboard /> } />
               <Route path="/login" element={ <Login /> } />
+              <Route path="/NewArticles" element={ <NewArticles /> } />
               <Route path="/detail/:aid" element={ <DetailArticle /> } />
             </Routes>
         </Layout.Content>

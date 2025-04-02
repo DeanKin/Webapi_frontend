@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import articles from './data/articles.json';
 import { useNavigate, useParams } from 'react-router-dom';
 
+
 const DetailArticle = () => {
     const { aid } = useParams();
     const navigate = useNavigate();
