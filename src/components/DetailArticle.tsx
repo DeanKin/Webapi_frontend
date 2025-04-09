@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import articles from './data/articles.json';
 import { useNavigate, useParams } from 'react-router-dom';
+import { api } from "../common/http-common";
 
 
 const DetailArticle = () => {

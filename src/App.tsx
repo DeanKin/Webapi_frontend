@@ -1,7 +1,7 @@
 import { Flex, Layout, Space } from 'antd';
 import { Routes,Route, BrowserRouter, Link, } from "react-router-dom"
 import Home from './components/Home';
-import About from './components/Anout';
+import About from './components/About';
 import Dashboard from './components/Dashboard';
 import Article from './components/Article';
 import DetailArticle from './components/DetailArticle';
@@ -34,6 +34,7 @@ const App = ()=> {
               <Route path="/dashboard" element={ <Dashboard /> } />
               <Route path="/login" element={ <Login /> } />
               <Route path="/NewArticles" element={ <NewArticles /> } />
+              <Route path="/a/:aid" element={ <DetailArticle /> } />
               <Route path="/detail/:aid" element={ <DetailArticle /> } />
             </Routes>
         </Layout.Content>
